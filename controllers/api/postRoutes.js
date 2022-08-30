@@ -1,6 +1,21 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+// router.get('/', async (req, res) => {
+//   // find all products
+//   // be sure to include its associated Category and Tag data
+//   try {
+//     const postData = await Post.findAll();
+//     include: 
+//     [{ model: User,
+//     attributes: ['name']
+//     }];
+//     res.status(200).json(postData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/', withAuth, async (req, res) => {
   try {

@@ -1,13 +1,13 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#post-name').value.trim();
-    const description = document.querySelector('#post-desc').value.trim();
+    const name = document.querySelector('#project-name').value.trim();
+    const description = document.querySelector('#project-desc').value.trim();
   
-    if (name && needed_funding && description) {
+    if (name&& description) {
       const response = await fetch(`/api/posts`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ name, description }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -30,7 +30,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/post');
+        document.location.replace('/profile');
       } else {
         alert('Failed to delete post');
       }
@@ -38,9 +38,9 @@ const newFormHandler = async (event) => {
   };
   
   document
-    .querySelector('.new-post-form')
+    .querySelector('.new-project-form')
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.post-list')
+    .querySelector('.project-list')
     .addEventListener('click', delButtonHandler);
